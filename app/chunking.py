@@ -7,6 +7,8 @@ def chunking(documents) -> list:
 
     Parameters:
         documents (list): List of Document objects
+    Return:
+        Returns splitted documents
     """
     
     c_splitter = RecursiveCharacterTextSplitter(
@@ -20,4 +22,6 @@ def chunking(documents) -> list:
     print("Documents splitting completed")
     print("Total Documents: " + str(len(documents)))
     print("Total Chunks: " + str(len(splitted_docs)))
+
+    return splitted_docs
     
