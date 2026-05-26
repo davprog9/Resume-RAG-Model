@@ -1,10 +1,6 @@
 from vector_store import vector_db_store
 
-def find_closest(user_query: str, k=1) -> list[str]:
-    return vector_db_store.similarity_search(user_query, k=k)
-
-
-def retrieve(user_query: str):
+def retrieve(user_query: str, k: int):
     '''
     User Query
         ↓
@@ -15,6 +11,6 @@ def retrieve(user_query: str):
     Return top chunks
     '''
 
-    closest_answer = find_closest(user_query)
+    closest_answer = vector_db_store.similarity_search(user_query, k=k)
 
     return closest_answer
