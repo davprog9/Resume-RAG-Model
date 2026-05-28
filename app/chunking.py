@@ -1,4 +1,4 @@
-from langchain.text_splitter import RecursiveCharacterTextSplitter, CharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter, CharacterTextSplitter
 
 
 def chunking(documents) -> list:
@@ -12,8 +12,8 @@ def chunking(documents) -> list:
     """
     
     c_splitter = RecursiveCharacterTextSplitter(
-        chunk_size = 300,
-        chunk_overlap = 50,
+        chunk_size = 500,
+        chunk_overlap = 100,
         separators = ["\n\n", "\n", " ", ""]  # fallback levels: paragraphs, lines, words, characters
     )
 

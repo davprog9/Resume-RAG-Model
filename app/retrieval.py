@@ -11,6 +11,6 @@ def retrieve(user_query: str, k: int):
     Return top chunks
     '''
 
-    closest_answer = vector_db_store.similarity_search(user_query, k=k)
+    closest_answer = vector_db_store().similarity_search(user_query, k=1)
 
     return closest_answer
