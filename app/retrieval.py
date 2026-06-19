@@ -1,6 +1,6 @@
 from vector_store import vector_db_store
 
-def retrieve(user_query: str, k: int):
+def retrieve(user_query: str, k: int = 3):
     '''
     User Query
         ↓
@@ -8,9 +8,9 @@ def retrieve(user_query: str, k: int):
         ↓
     Search vector DB
         ↓
-    Return top chunks
+    Return top k chunks
     '''
-
-    closest_answer = vector_db_store().similarity_search(user_query, k=1)
+    vc_store = vector_db_store()
+    closest_answer = vc_store.similarity_search(user_query, k)
 
     return closest_answer

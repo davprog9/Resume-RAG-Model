@@ -24,9 +24,23 @@ with open("app/prompt_template.txt", "r") as file:
     TEMPLATE = file.read()
 
 def generate_answer(user_query: str):
+    '''
+    Generating a model answer
+     - Retrieving the closest chunks of user_query
+     - Building the context
+     - Building the final prompt template
+     - Generating the final answer by feeding the prompt template
+
+    Parameters:
+        user_query (str): User query (question)
+
+    Return:
+        Returns the model answer
+    '''
     
     # Retrieving closest chunks and building the context for the prompt
-    closest_chunks = retrieve(user_query, k=3)
+    closest_chunks = retrieve(user_query, k=10)
+
     context = "\n\n".join([doc.page_content for doc in closest_chunks])
     
     # Final prompt formatted

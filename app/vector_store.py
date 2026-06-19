@@ -3,7 +3,6 @@ from langchain_chroma import Chroma
 from sentence_transformers import SentenceTransformer
 
 # Vector database
-
 def vector_db_store() -> Chroma:
 
     vector_store = Chroma(

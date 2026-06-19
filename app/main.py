@@ -1,7 +1,11 @@
 from generation import generate_answer
 
-query = input("Ask: ")
+while True:
+    query = input("Ask a question or type 'stop' to exit: ")
 
-answer = generate_answer(query)
+    if query.lower() == "stop":
+        break
 
-print(answer)
+    answer = generate_answer(query)
+
+    print(answer)
