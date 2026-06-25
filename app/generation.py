@@ -23,7 +23,7 @@ from gemini_client import generate_text
 with open("app/prompt_template.txt", "r") as file:
     TEMPLATE = file.read()
 
-def generate_answer(user_query: str):
+def generate_answer(user_query: str, history: str):
     '''
     Generating a model answer
      - Retrieving the closest chunks of user_query
@@ -43,9 +43,16 @@ def generate_answer(user_query: str):
 
     context = "\n\n".join([doc.page_content for doc in closest_chunks])
     
+    history_text = ""
+
+    for msg in history[-6:]:
+        history_text += (
+            f"{msg['role']}: {msg['content']}\n"
+        )
+
     # Final prompt formatted
-    final_prompt = TEMPLATE.format(Question = user_query, Context = context)
-    
+    final_prompt = TEMPLATE.format(Question = user_query, History = history_text, Context = context)
+
     # Calling the Gemini API and generating the final answer
     answer = generate_text(final_prompt)
     

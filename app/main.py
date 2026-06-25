@@ -7,5 +7,3 @@ while True:
         break
 
     answer = generate_answer(query)
-
-    print(answer)
