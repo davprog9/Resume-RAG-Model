@@ -10,3 +10,4 @@ torch
 google-genai
 python-dotenv
 pypdf
+torchvision
