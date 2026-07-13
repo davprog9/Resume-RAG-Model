@@ -5,6 +5,7 @@ from sentence_transformers import SentenceTransformer
 # Vector database
 def vector_db_store() -> Chroma:
 
+    # Open the chroma db if exists, otherwise will make an empty one
     vector_store = Chroma(
         collection_name="resume_info",
         embedding_function=embedding_function,
