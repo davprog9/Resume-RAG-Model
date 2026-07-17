@@ -24,9 +24,8 @@ with st.sidebar:
 
     st.write("* Tell me about your Data Science experience.")
     st.write("* What machine learning projects have you worked on?")
-    st.write("* What technologies did you use to build this chatbot?")
     st.write("* What can you bring to our team?")
-    st.write("* How does the RAG pipeline behind this project work?")
+    st.write("* What machine learning models do you know?")
 
     st.header("Note")
 
